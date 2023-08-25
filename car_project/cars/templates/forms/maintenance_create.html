@@ -1,0 +1,21 @@
+{% extends "home/home_view.html" %}
+
+{% block body %}
+    <h2>Crear Nuevo Mantemiento para el Carro {{ car.name }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <script>
+            $(function () {
+                $(".datepicker").datepicker({
+                    dateFormat: "yy-mm-dd",  // Format: YYYY-MM-DD
+                    changeMonth: true,
+                    changeYear: true,
+                });
+            });
+        </script>
+        <button type="submit">Crear Mantenimiento</button>
+
+    </form>
+{% endblock %}

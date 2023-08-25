@@ -1,0 +1,44 @@
+{% extends "home/home_view.html" %}
+{% load static %}
+
+{% block body %}
+    <style>
+    .document-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .document-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .document-image {
+        max-width: 100%;
+        max-height: 150px;
+        display: block;
+        margin: 0 auto;
+    }
+</style>
+
+
+    <h1>Lista de Documentos</h1>
+    <div class="document-grid">
+        {% for document in documents %}
+            <div class="document-card">
+                <a href="{% url 'upload_document' car.id  document.id %}"> 
+
+                    
+                    
+                    <h3>{{ document.title }}</h3>
+                    <img src="{{ document.picture.url }}" alt="{{ document.title }}" class="document-image">
+                    <p>Fecha de Vencimiento: {{ document.due_date }}</p>
+                </a>
+            </div>
+        {% empty %}
+            <p>No se encontraron los documentos.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

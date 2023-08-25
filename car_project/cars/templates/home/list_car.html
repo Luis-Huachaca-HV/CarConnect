@@ -1,0 +1,22 @@
+{% extends "home/home_view.html" %}
+{% load static %}
+
+{% block body %}
+<div class="car-containers">
+  {% for car in cars %}
+    <div class="item">
+      <a href="{% url 'car_detail' car_id=car.id %}">
+        
+
+            <p>
+                {{ car.name }}
+
+            </p>
+        
+            
+            <img src="{{ car.image.url }}">
+        </a>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

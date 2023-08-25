@@ -1,0 +1,17 @@
+{% extends "home/home_view.html" %}
+{% load static %}
+
+{% block body %}
+
+  <h1>Lista de Mantenimiento</h1>
+  <a href="{% url 'maintenance-create' car_id=car.id  %}">Nuevo Mantenimiento</a>
+  <ul>
+    {% for maintenance in maintenance_list_id %}
+    <li>
+        {{maintenance}}
+    </li>
+    <a href="{% url 'maintenance_detail' car_id=car.id maintenance_id=maintenance.id %}">Actualizar Datos de Mantenimiento</a>
+    
+   {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "home/home_view.html" %}
+
+{% block body %}<!-- link_new_tag.html -->
+<head>
+    <title>Agregar Etiquetas de Gasto</title>
+</head>
+
+    <h2>Agregar Etiquetas de Gasto</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Agregar</button>
+    </form>
+
+    <h2>Etiquetas No Incluidas</h2>
+    <ul>
+        {% for tag in unlinked_tags %}
+            <li>{{ tag.name }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

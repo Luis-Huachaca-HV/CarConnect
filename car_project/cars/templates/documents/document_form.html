@@ -1,0 +1,24 @@
+{% extends "home/home_view.html" %}
+{% load static %}
+
+{% block body %}
+<h1>Editar Documento</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Actualizar</button>
+</form>
+
+<h2>Datos de Documento</h2>
+<p>Carro: {{ document.car }}</p>
+<p>Titulo: {{ document.title }}</p>
+<p>Fecha de Vencimiento: {{ document.due_date }}</p>
+
+{% if document.picture %}
+    <h2>Documento</h2>
+    <img src="{{ document.picture.url }}" alt="Imagen">
+    <a href="{{ document.file.url}}" download>
+        <button>Descargar Documento</button>
+    </a>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "home/home_view.html" %}
+
+{% block body %}
+<h2>Editar Mantenimiento</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ maintenance_form.as_p }}
+    <button type="submit">Actualizar Mantenimiento</button>
+</form>
+
+<h3>Gastos</h3>
+<a href="{% url 'add-expense-tags' car_id=car_id maintenance_id=maintenance_id expense_id=0 %}" class="btn btn-primary">Agregar Etiqueta</a>
+
+
+{% for expense_form in expense_forms %}
+    <form method="post">
+        {% csrf_token %}
+        {{ expense_form.as_p }}
+        <button type="submit" name="update_expense_{{ expense_form.expense_id }}">Actualizar Etiqueta</button>
+    </form>
+{% endfor %}
+
+{% endblock %}

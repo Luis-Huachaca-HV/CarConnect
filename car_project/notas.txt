@@ -1,0 +1,3 @@
+- 4/08/2023: quitar el link de la tabla cars con la tabla expenses, ya que ya esta relacionado con la tabla maintenance
+- el calculo de gasto total por mes, se podra hacer
+- 12/08/2023: pasar la lista de mantenimientos definidos por id de carro en cada carro

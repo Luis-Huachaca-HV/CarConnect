@@ -1,0 +1,19 @@
+{% extends "home/home_view.html" %}
+{% load static %}
+
+{% block body %}
+<div class="car-detail">
+  <h2>{{ car.name }}</h2>
+  <img src="{{ car.image.url }}">
+  <!-- Add other car details here -->
+  <div class="docs-direc-containter">
+   
+    </div>
+    <div class="mant-direc-container">
+      <!-- Link to view the maintenance list for car with ID 1 -->
+      <a href="{% url 'maintenance-list' car_id=car.id %}">Ver Lista de Mantenimientos</a>
+
+      <a href="{% url 'documents-list' car_id=car.id %}"> Ver Lista de Documentos </a>
+    </div>
+</div>
+{% endblock %}

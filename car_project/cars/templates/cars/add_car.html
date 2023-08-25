@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Car</title>
+</head>
+<body>
+    <h1>Add Car</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+        <label for="model">Model:</label>
+        <input type="text" name="model" required><br>
+        <label for="year">Year:</label>
+        <input type="number" name="year" required><br>
+        <label for="variable_type">Variable Type:</label>
+        <select name="variable_type" required>
+            <option value="millas">Millas</option>
+            <option value="kilometros">Kilómetros</option>
+        </select><br>
+        <input type="submit" value="Add Car">
+    </form>
+</body>
+</html>

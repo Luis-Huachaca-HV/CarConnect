@@ -1,0 +1,6 @@
+# Ignore virtual environment
+venv/
+
+# Ignore sensitive files
+settings.ini
+secret_key.txt

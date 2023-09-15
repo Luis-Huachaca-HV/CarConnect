@@ -8,7 +8,18 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/base.css' %}" >
+  <!-- Include jQuery and jQuery UI JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
+  <!-- Include jQuery UI CSS (Spanish version) -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css">
+
+  <!-- Include jQuery UI localization for Spanish -->
+  <script src="https://code.jquery.com/ui/1.12.1/i18n/jquery-ui-i18n.min.js"></script>
+  <script>
+      $.datepicker.setDefaults($.datepicker.regional["es"]); // Set datepicker to Spanish
+  </script>
 </head>
 <body>
   <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="leftMenu">

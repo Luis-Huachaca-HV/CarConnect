@@ -1,11 +1,24 @@
 {% extends "home/home_view.html" %}
 
 {% block body %}
-    <h2>Crear Nuevo Mantemiento para el Carro {{ car.name }}</h2>
+    <!-- Include jQuery and jQuery UI JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- Include jQuery UI CSS (Spanish version) -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css">
+
+    <!-- Include jQuery UI localization for Spanish -->
+    <script src="https://code.jquery.com/ui/1.12.1/i18n/jquery-ui-i18n.min.js"></script>
+    <script>
+        $.datepicker.setDefaults($.datepicker.regional["es"]); // Set datepicker to Spanish
+    </script>
+    
+    <h2>Crear Nuevo Mantenimiento para el Carro {{ car.name }}</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        
+
         <script>
             $(function () {
                 $(".datepicker").datepicker({
@@ -16,6 +29,5 @@
             });
         </script>
         <button type="submit">Crear Mantenimiento</button>
-
     </form>
 {% endblock %}

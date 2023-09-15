@@ -8,10 +8,11 @@ class MaintenanceForm(forms.ModelForm):
         fields = ['date', 'hour_meter', 'mileage_km', 'total_spent']
         widgets = {
             'date': forms.DateInput(attrs={
-                'class': 'datepicker',  # Add a class for the datepicker
+                'class': 'datepicker',
                 'placeholder': 'YYYY-MM-DD',
             }),
         }
+
 #ExpenseTagFormSet = inlineformset_factory(Maintenance, ExpenseTag, fields=['tag', 'amount'], extra=0)
 from .models import ExpenseTag
 

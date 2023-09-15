@@ -102,7 +102,7 @@ class Expense(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE,verbose_name="Carro", related_name='expenses')  # Added related_name
     maintenance = models.ForeignKey(Maintenance,verbose_name="Mantenimiento" ,on_delete=models.CASCADE)
     tag = models.ForeignKey(ExpenseTag,verbose_name="Etiqueta", on_delete=models.CASCADE)
-    date = models.DateField(verbose_name="Fecha")
+    date = models.DateField(verbose_name="Fecha") #quitar la fecha porque ya no es util
     amount = models.DecimalField(max_digits=10,verbose_name="cantidad", decimal_places=2, default=0)
     class Meta:
         verbose_name = "Gasto"

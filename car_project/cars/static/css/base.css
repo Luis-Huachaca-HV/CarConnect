@@ -37,3 +37,6 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: #45a049;
 }
+li {
+  padding: 20px;
+}

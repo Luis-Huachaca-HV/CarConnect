@@ -31,6 +31,7 @@ def send_reminder(request):
     send_document_reminder.delay(user_email)
     # Add any response or redirection logic here
 
+@login_required
 def maintenance_create(request, car_id):
     car = get_object_or_404(Car, id=car_id)
 
@@ -46,6 +47,7 @@ def maintenance_create(request, car_id):
 
     return render(request, 'forms/maintenance_create.html', {'car': car, 'form': form})
 
+@login_required
 def documents_list(request,car_id):
     try:
         car = get_object_or_404(Car, id=car_id)
@@ -61,6 +63,7 @@ def documents_list(request,car_id):
 
     return render(request, 'documents/documents_list.html', context)
 
+@login_required
 def upload_document(request, car_id,document_id):
     car = get_object_or_404(Car, id=car_id)
     document = get_object_or_404(Document, id=document_id)
@@ -78,6 +81,7 @@ def upload_document(request, car_id,document_id):
 
 
 
+@login_required
 def maintenance_detail(request, car_id, maintenance_id):
     maintenance = get_object_or_404(Maintenance, car_id=car_id, id=maintenance_id)
     expenses = Expense.objects.filter(maintenance=maintenance)
@@ -105,6 +109,7 @@ def maintenance_detail(request, car_id, maintenance_id):
         'expense_forms': expense_forms,
     })
 
+@login_required
 def add_expense_tags(request, car_id, maintenance_id, expense_id):
     expense = None
 
@@ -139,11 +144,12 @@ def add_expense_tags(request, car_id, maintenance_id, expense_id):
 
 
 
+@login_required
 class MaintenanceDeleteView(DeleteView):
     model = Maintenance
     success_url = reverse_lazy('maintenance-list')
 
-
+@login_required
 def car_detail(request, car_id):
     car = get_object_or_404(Car, id=car_id)
     return render(request, 'home/car_detail.html', {'car': car})
@@ -155,8 +161,6 @@ def car_list(request):
     return render(request, 'home/list_car.html', {'cars': cars})
 
 
-
-#quitar esto y poner un def con lo que necesitamos
 class MaintenanceListView(ListView):
     model = Maintenance
     template_name = 'maintenance_list.html'
@@ -179,4 +183,4 @@ class MaintenanceListView(ListView):
 
 def home_view(request):
     #if request.method == 'POST':
-    return render(request, 'home/home_view.html')
+    return render(request, 'home/home1_view.html')

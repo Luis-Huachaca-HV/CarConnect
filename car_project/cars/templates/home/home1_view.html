@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}" >
+  <!-- Include jQuery and jQuery UI JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+  <!-- Include jQuery UI CSS (Spanish version) -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css">
+
+  <!-- Include jQuery UI localization for Spanish -->
+  <script src="https://code.jquery.com/ui/1.12.1/i18n/jquery-ui-i18n.min.js"></script>
+  <script>
+      $.datepicker.setDefaults($.datepicker.regional["es"]); // Set datepicker to Spanish
+  </script>
+</head>
+<body>
+  <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="leftMenu">
+    <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+    <a href="{% url 'login' %}" class="w3-bar-item w3-button"> Iniciar Sesion</a>
+    <a href="{% url 'signup' %}" class="w3-bar-item w3-button"> Registrarse</a>
+    <a href="{% url 'logout' %}" class="w3-bar-item w3-button"> Cerrar Sesion</a>
+  </div>
+
+  <div class="w3-teal">
+    <button class="w3-button w3-teal w3-xlarge w3-left" onclick="openLeftMenu()">&#9776;</button>
+    <div class="w3-container">
+      <h1>Mi Pagina</h1>
+    </div>
+  </div>
+
+  <script>
+    function openLeftMenu() {
+      document.getElementById("leftMenu").style.display = "block";
+    }
+
+    function closeLeftMenu() {
+      document.getElementById("leftMenu").style.display = "none";
+    }
+  </script>
+
+  {% block body %}
+  
+  
+  
+  {% endblock %}
+
+</body>
+</html>

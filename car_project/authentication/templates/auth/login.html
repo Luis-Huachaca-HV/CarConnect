@@ -1,11 +1,15 @@
-{% extends "home/home_view.html" %}
+{% extends "home/home1_view.html" %}
 {% block body %}
   <h2>Iniciar Sesion</h2>
   <form method="post" id="login-form">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Ingresar</button>
-    <button type="button" id="login-admin-button">Ingresar al Portal de Administrador</button>
+    <a href="{% url 'car_list' %}" class="w3-bar-item w3-button">
+
+      
+      <button type="submit">Ingresar</button>
+      <button type="button" id="login-admin-button">Ingresar al Portal de Administrador</button>
+    </a>
   </form>
   
   <script>

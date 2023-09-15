@@ -9,8 +9,8 @@ class CarConfig(AppConfig):
     name = 'cars'
     app_label = 'cars'
 class Car(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Usuario")
 
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Usuario")
     name = models.CharField(max_length=100,verbose_name="Nombre")
     model = models.CharField(max_length=100,verbose_name="Descripcion")
     year = models.PositiveIntegerField(verbose_name="Inicio")
